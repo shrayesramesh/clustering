@@ -203,7 +203,7 @@ source("simulations.R")
 ###NOTE:: ALL FUNCTIONS in this file REFER TO DATA object as "data"!
 ###THIS NEEDS TO BE CHANGED IN THE NEXT VERSION
 ###
-data <- generatedata(N=10000,xpar=xsample)
+data <- generatedata(4,grid=25)
 
 #demo of fast sampled triangulation layout
 par(mfrow=c(1,2)) #for plotting batches
@@ -217,7 +217,7 @@ plot(layout,xlab="x1", ylab="x2", main="stscale coordinates")
 # })
 
 system.time({
-  all.output<-masterflagfunction(dpair=dpair,radius=1,runsize1=1,runsize2=1,batchsize=1000, plot.batches=TRUE)
+  all.output<-masterflagfunction(dpair=dpair,radius=.5,runsize1=1,runsize2=1,batchsize=1000, plot.batches=TRUE)
   output<- all.output$distances
   clusters<-all.output$clusters
 })
